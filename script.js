@@ -1,7 +1,7 @@
 const products = [
-    { id: 1, name: "Producto 1", price: 10.99 },
-    { id: 2, name: "Producto 2", price: 14.99 },
-    { id: 3, name: "Producto 3", price: 7.99 }
+    { id: 1, name: "Producto 1", price: 10.99, image: "images/hoddie.webp" },
+    { id: 2, name: "Producto 2", price: 14.99, image: "images/hoddie2.webp" },
+    { id: 3, name: "Producto 3", price: 7.99, image: "images/tines.webp" }
 ];
 
 const cart = [];
@@ -20,6 +20,7 @@ function displayProducts() {
         const productElement = document.createElement("div");
         productElement.classList.add("product");
         productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="product-image"/>
             <h3>${product.name}</h3>
             <p>Precio: $${product.price.toFixed(2)}</p>
             <button class="add-to-cart" data-id="${product.id}">Agregar al Carrito</button>
@@ -66,4 +67,3 @@ checkoutButton.addEventListener("click", () => {
 });
 
 displayProducts();
-
