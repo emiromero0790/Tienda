@@ -131,3 +131,16 @@ button.add-to-cart:hover {
         transform: translateY(0);
     }
 }
+.product-image {
+    width: 100%; /* Hace que la imagen se ajuste al contenedor */
+    max-height: 150px; /* Ajusta la altura máxima para que no se vea gigante */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-radius: 5px;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
