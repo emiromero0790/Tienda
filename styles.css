@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 header {
@@ -13,6 +14,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background 0.3s ease;
+}
+
+header:hover {
+    background: #444;
 }
 
 .cart button {
@@ -22,6 +28,12 @@ header {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.cart button:hover {
+    background: #e68900;
+    transform: scale(1.05);
 }
 
 .product-container {
@@ -29,6 +41,8 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
+    gap: 20px;
+    animation: fadeIn 1s ease;
 }
 
 .product {
@@ -39,6 +53,12 @@ header {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 button.add-to-cart {
@@ -49,6 +69,12 @@ button.add-to-cart {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+button.add-to-cart:hover {
+    background: #218838;
+    transform: scale(1.05);
 }
 
 .modal {
@@ -61,6 +87,7 @@ button.add-to-cart {
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    animation: fadeInModal 0.5s ease;
 }
 
 .modal-content {
@@ -68,6 +95,7 @@ button.add-to-cart {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    animation: slideIn 0.5s ease;
 }
 
 .close {
@@ -75,4 +103,31 @@ button.add-to-cart {
     font-size: 24px;
     color: red;
     float: right;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
