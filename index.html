@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,16 @@
 </head>
 <body>
     <header>
-        <h1>Tienda Online</h1>
+        <img src="images/gymshark-limited-logo-vector-removebg-preview.png" alt="gymsharkLogo" width="300px">
         <div class="cart">
             <button id="cart-button">🛒 (<span id="cart-count">0</span>)</button>
         </div>
     </header>
+    <div class="categorias">
+        <span>WOMEN</span>
+        <span>MEN</span>
+    </div>
+    <div class= encabezadito><h3>Envío: consulte nuestra información de entrega.</h3></div>
     <main>
         <div id="products" class="product-container"></div>
     </main>
@@ -22,7 +27,7 @@
             <h2>Carrito de Compras</h2>
             <ul id="cart-items"></ul>
             <p>Total: $<span id="cart-total">0.00</span></p>
-            <button id="checkout">Finalizar Compra</button>
+            <button id="checkout" class="comprar">Finalizar Compra</button>
         </div>
     </div>
     <script src="script.js"></script>

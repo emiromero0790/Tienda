@@ -1,69 +1,72 @@
-const products = [
-    { id: 1, name: "Producto 1", price: 10.99, image: "images/hoddie.webp" },
-    { id: 2, name: "Producto 2", price: 14.99, image: "images/hoddie2.webp" },
-    { id: 3, name: "Producto 3", price: 7.99, image: "images/tines.webp" }
+const productos = [
+    { id: 1, nombre: "Oversized hoodie", precio: 10.99, imagen: "images/StrengthDepartmentOversizedHoodieLightGreyCoreMarlB1C8Z-GBCN_1920x.jpg", valoracion: 4.4 },
+    { id: 2, nombre: "Blue Workout Set", precio: 19.99, imagen: "images/481791819_18484071535014707_4752335431520538635_n.-Photoroom.png", valoracion: 4.7 },
+    { id: 3, nombre: "Power hoodie", precio: 14.99, imagen: "images/hoddie2.webp", valoracion: 4.7 },
+    { id: 4, nombre: "Gymthark Oversized Tee", precio: 14.99, imagen: "images/Captura de pantalla 2025-03-13 215331-Photoroom.png", valoracion: 4.5 },
+    { id: 5, nombre: "Crew socks", precio: 7.99, imagen: "images/tines.webp", valoracion: 4.5 },
+    
 ];
 
-const cart = [];
-const productsContainer = document.getElementById("products");
-const cartButton = document.getElementById("cart-button");
-const cartModal = document.getElementById("cart-modal");
-const closeModal = document.querySelector(".close");
-const cartItems = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-const cartCount = document.getElementById("cart-count");
-const checkoutButton = document.getElementById("checkout");
+const carrito = [];
+const contenedorProductos = document.getElementById("products");
+const botonCarrito = document.getElementById("cart-button");
+const modalCarrito = document.getElementById("cart-modal");
+const cerrarModal = document.querySelector(".close");
+const listaCarrito = document.getElementById("cart-items");
+const totalCarrito = document.getElementById("cart-total");
+const contadorCarrito = document.getElementById("cart-count");
+const botonFinalizarCompra = document.getElementById("checkout");
 
-function displayProducts() {
-    productsContainer.innerHTML = "";
-    products.forEach(product => {
-        const productElement = document.createElement("div");
-        productElement.classList.add("product");
-        productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" class="product-image"/>
-            <h3>${product.name}</h3>
-            <p>Precio: $${product.price.toFixed(2)}</p>
-            <button class="add-to-cart" data-id="${product.id}">Agregar al Carrito</button>
+function mostrarProductos() {
+    contenedorProductos.innerHTML = "";
+    productos.forEach(producto => {
+        const elementoProducto = document.createElement("div");
+        elementoProducto.classList.add("product");
+        elementoProducto.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image"/>
+            <h3>${producto.nombre}</h3><h3>⭐${producto.valoracion}</h3>
+            <p>Precio: $${producto.precio.toFixed(2)}</p>
+            <button class="agregar-carrito" data-id="${producto.id}">Agregar al Carrito</button>
         `;
-        productsContainer.appendChild(productElement);
+        contenedorProductos.appendChild(elementoProducto);
     });
 }
 
-document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("add-to-cart")) {
-        const productId = parseInt(event.target.dataset.id);
-        const product = products.find(p => p.id === productId);
-        cart.push(product);
-        updateCart();
+document.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("agregar-carrito")) {
+        const idProducto = parseInt(evento.target.dataset.id);
+        const producto = productos.find(p => p.id === idProducto);
+        carrito.push(producto);
+        actualizarCarrito();
     }
 });
 
-function updateCart() {
-    cartItems.innerHTML = "";
+function actualizarCarrito() {
+    listaCarrito.innerHTML = "";
     let total = 0;
-    cart.forEach((item, index) => {
-        total += item.price;
+    carrito.forEach((item) => {
+        total += item.precio;
         const li = document.createElement("li");
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartItems.appendChild(li);
+        li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+        listaCarrito.appendChild(li);
     });
-    cartTotal.textContent = total.toFixed(2);
-    cartCount.textContent = cart.length;
+    totalCarrito.textContent = total.toFixed(2);
+    contadorCarrito.textContent = carrito.length;
 }
 
-cartButton.addEventListener("click", () => {
-    cartModal.style.display = "flex";
+botonCarrito.addEventListener("click", () => {
+    modalCarrito.style.display = "flex";
 });
 
-closeModal.addEventListener("click", () => {
-    cartModal.style.display = "none";
+cerrarModal.addEventListener("click", () => {
+    modalCarrito.style.display = "none";
 });
 
-checkoutButton.addEventListener("click", () => {
-    alert("Compra realizada con éxito!");
-    cart.length = 0;
-    updateCart();
-    cartModal.style.display = "none";
+botonFinalizarCompra.addEventListener("click", () => {
+    alert("¡Compra realizada con éxito!");
+    carrito.length = 0;
+    actualizarCarrito();
+    modalCarrito.style.display = "none";
 });
 
-displayProducts();
+mostrarProductos();
