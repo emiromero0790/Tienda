@@ -1,9 +1,9 @@
 const productos = [
     { id: 1, nombre: "Oversized hoodie", precio: 10.99, imagen: "images/StrengthDepartmentOversizedHoodieLightGreyCoreMarlB1C8Z-GBCN_1920x.jpg", valoracion: 4.4 },
     { id: 2, nombre: "Blue Workout Set", precio: 19.99, imagen: "images/481791819_18484071535014707_4752335431520538635_n.-Photoroom.png", valoracion: 4.7 },
-    { id: 3, nombre: "Power hoodie", precio: 14.99, imagen: "images/hoddie2.webp", valoracion: 4.7 },
-    { id: 4, nombre: "Gymthark Oversized Tee", precio: 14.99, imagen: "images/Captura de pantalla 2025-03-13 215331-Photoroom.png", valoracion: 4.5 },
-    { id: 5, nombre: "Crew socks", precio: 7.99, imagen: "images/tines.webp", valoracion: 4.5 },
+    { id: 3, nombre: "Gymthark Oversized Tee", precio: 14.99, imagen: "images/Captura de pantalla 2025-03-13 215331-Photoroom.png", valoracion: 4.5 },
+    { id: 4, nombre: "Power hoodie", precio: 14.99, imagen: "images/hoddie2.webp", valoracion: 4.7 },
+    { id: 5, nombre: "Crew socks", precio: 7.99, imagen: "images/tines.webp", valoracion: 4.5 }
     
 ];
 
